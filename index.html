@@ -1,352 +1,48 @@
 <!DOCTYPE html>
-<html lang=”en”>
+<html lang="en">
 <head>
-<meta charset=”UTF-8”>
-<meta name=”viewport” content=”width=device-width, initial-scale=1.0”>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Hergeelyn Rayos</title>
-
-<link href=https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap rel=”stylesheet”>
-
-<style>
-
-:root{
-    --bg:#fff8f3;
-    --card:#ffffff;
-    --text:#2f2f2f;
-    --accent:#f6c177;
-    --accent2:#f4d6d6;
-}
-
-.dark{
-    --bg:#1c1c1c;
-    --card:#2a2a2a;
-    --text:#ffffff;
-    --accent:#f6c177;
-}
-
-*{
-    Margin:0;
-    Padding:0;
-    Box-sizing:border-box;
-}
-
-Body{
-    Font-family:’Poppins’,sans-serif;
-    Background:var(--bg);
-    Color:var(--text);
-    Transition:.4s;
-}
-
-Nav{
-    Position:fixed;
-    Top:0;
-    Width:100%;
-    Padding:15px 8%;
-    Background:rgba(255,255,255,.7);
-    Backdrop-filter:blur(10px);
-    Display:flex;
-    Justify-content:space-between;
-    Align-items:center;
-    z-index:1000;
-}
-
-.dark nav{
-    Background:rgba(20,20,20,.8);
-}
-
-.logo{
-    Font-size:1.4rem;
-    Font-weight:600;
-}
-
-Nav ul{
-    Display:flex;
-    Gap:20px;
-    List-style:none;
-}
-
-Nav a{
-    Text-decoration:none;
-    Color:var(--text);
-}
-
-.toggle{
-    Cursor:pointer;
-    Font-size:20px;
-}
-
-.hero{
-    Min-height:100vh;
-    Display:flex;
-    Align-items:center;
-    Justify-content:center;
-    Text-align:center;
-    Padding:40px;
-    Background:
-    Linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),
-    url(‘https://images.unsplash.com/photo-1506744038136-46273834b3fb’);
-    background-size:cover;
-    background-position:center;
-    color:white;
-}
-
-.hero h1{
-    Font-family:’Playfair Display’,serif;
-    Font-size:4rem;
-}
-
-.hero p{
-    Margin-top:15px;
-    Max-width:600px;
-}
-
-.btn{
-    Display:inline-block;
-    Margin-top:25px;
-    Padding:12px 25px;
-    Background:var(--accent);
-    Color:black;
-    Border-radius:30px;
-    Text-decoration:none;
-    Font-weight:600;
-}
-
-Section{
-    Padding:100px 8%;
-}
-
-.section-title{
-    Text-align:center;
-    Margin-bottom:40px;
-    Font-size:2rem;
-    Font-family:’Playfair Display’,serif;
-}
-
-.about{
-    Display:grid;
-    Grid-template-columns:1fr 1fr;
-    Gap:40px;
-    Align-items:center;
-}
-
-.about img{
-    Width:100%;
-    Border-radius:20px;
-}
-
-.card{
-    Background:var(--card);
-    Padding:25px;
-    Border-radius:20px;
-    Box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.cats{
-    Display:grid;
-    Grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    Gap:25px;
-}
-
-.cat-card{
-    Background:var(--card);
-    Padding:30px;
-    Border-radius:20px;
-    Text-align:center;
-}
-
-.cat-card h3{
-    Margin-bottom:10px;
-}
-
-.gallery{
-    Display:grid;
-    Grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    Gap:15px;
-}
-
-.gallery img{
-    Width:100%;
-    Height:280px;
-    Object-fit:cover;
-    Border-radius:15px;
-    Transition:.3s;
-}
-
-.gallery img:hover{
-    Transform:scale(1.05);
-}
-
-.favorites{
-    Display:grid;
-    Grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    Gap:20px;
-}
-
-.favorite{
-    Background:var(--card);
-    Padding:25px;
-    Border-radius:15px;
-    Text-align:center;
-    Font-size:1.1rem;
-}
-
-Footer{
-    Text-align:center;
-    Padding:40px;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-    Font-size:2.5rem;
-}
-
-.about{
-    Grid-template-columns:1fr;
-}
-
-Nav ul{
-    Display:none;
-}
-
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 </head>
+
 <body>
-
-<nav>
-    <div class=”logo”>🌸 Hergeelyn</div>
-
-    <ul>
-        <li><a href=”#about”>About</a></li>
-        <li><a href=”#cats”>Cats</a></li>
-        <li><a href=”#gallery”>Gallery</a></li>
-        <li><a href=”#favorites”>Favorites</a></li>
-    </ul>
-
-    <div class=”toggle” onclick=”toggleDarkMode()”>🌙</div>
+<div id="particles"></div>
+<nav class="glass">
+<h2>Hergeelyn Rayos</h2>
+<ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#cats">Cats</a></li>
+    <li><a href="#story">Story</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+</ul>
+<button id="themeToggle">🌙</button>
 </nav>
-
-<section class=”hero”>
-    <div>
-        <h1>Hergeelyn Rayos</h1>
-        <p>
-            Cat lover, memory collector, sunset chaser,
-            And believer in life’s beautiful little moments.
-        </p>
-
-        <a href=”#about” class=”btn”>Explore My World</a>
-    </div>
-</section>
-
-<section id=”about”>
-
-    <h2 class=”section-title”>About Me</h2>
-
-    <div class=”about”>
-
-        <img src=”YOUR_PHOTO.jpg”>
-
-        <div class=”card”>
-            <p>
-                Hello! I’m Hergeelyn.
-                I enjoy sunsets, photography, nature,
-                And creating unforgettable memories.
-                Life feels brighter with my beloved cats
-                Lulu and Lucas by my side.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-<section id=”cats”>
-
-    <h2 class=”section-title”>🐱 Meet My Cats</h2>
-
-    <div class=”cats”>
-
-        <div class=”cat-card”>
-            <h3>Lulu</h3>
-            <p>
-                Curious, playful and always looking for attention.
-            </p>
-        </div>
-
-        <div class=”cat-card”>
-            <h3>Lucas</h3>
-            <p>
-                Calm, cuddly and loves relaxing in cozy spots.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-<section id=”gallery”>
-
-    <h2 class=”section-title”>Photo Memories</h2>
-
-    <div class=”gallery”>
-
-        <img src=”YOUR_PHOTO1.jpg”>
-        <img src=”YOUR_PHOTO2.jpg”>
-        <img src=”YOUR_PHOTO3.jpg”>
-        <img src=”YOUR_PHOTO4.jpg”>
-        <img src=”YOUR_PHOTO5.jpg”>
-        <img src=”YOUR_PHOTO6.jpg”>
-
-    </div>
-
-</section>
-
-<section id=”favorites”>
-
-    <h2 class=”section-title”>Things I Love</h2>
-
-    <div class=”favorites”>
-
-        <div class=”favorite”>🐱 Cats</div>
-        <div class=”favorite”>🌅 Sunsets</div>
-        <div class=”favorite”>📷 Photography</div>
-        <div class=”favorite”>☕ Coffee</div>
-        <div class=”favorite”>🎵 Music</div>
-        <div class=”favorite”>🌿 Nature</div>
-
-    </div>
-
-</section>
-
-<footer>
-
-    <h3>✨ Every sunset brings a new memory.</h3>
-    <br>
-    <p>© 2026 Hergeelyn Rayos</p>
-
-</footer>
-
-<script>
-
-Function toggleDarkMode(){
-    Document.body.classList.toggle(“dark”);
-}
-
-Document.querySelectorAll(‘a[href^=”#”]’).forEach(anchor => {
-    Anchor.addEventListener(‘click’, function€{
-        e.preventDefault();
-
-        document.querySelector(
-            this.getAttribute(‘href’)
-        ).scrollIntoView({
-            Behavior:’smooth’
-        });
-    });
-});
-
-</script>
-
+<header class="hero">
+<div class="glass hero-card">
+<h1>Hergeelyn Rayos</h1>
+<p>Cat Lover • Memory Collector • Sunset Chaser</p>
+</div>
+</header>
+<section id="about"><h2>About Me</h2>
+    <div class="glass card">Welcome to my personal space inspired by sunsets, memories, Lulu and Lucas.</div></section>
+<section id="cats"><h2>Lulu & Lucas</h2>
+    <div class="grid"><div class="glass card"><h3>Lulu 🐱</h3></div>
+    <div class="glass card"><h3>Lucas 🐱</h3></div></div></section>
+<section id="story"><h2>Love Story ❤️</h2>
+    <div class="timeline"><div class="glass card">How We Met</div>
+    <div class="glass card">Special Memories</div>
+    <div class="glass card">Future Dreams</div></div></section>
+<section id="gallery"><h2>Photo Memories</h2><div class="gallery">
+<img src="https://picsum.photos/500/700?1">
+<img src="https://picsum.photos/500/600?2">
+<img src="https://picsum.photos/500/800?3">
+<img src="https://picsum.photos/500/650?4">
+</div></section>
+<div id="lightbox"><span id="close">&times;</span><img id="lightboxImg"></div>
+<script src="script.js"></script>
 </body>
 </html>
